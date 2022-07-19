@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/index.css">
+        <title>AQUAPURA-APP</title>
+    </head>
+    <body>
+        <main>
+            <main>
+                <section class="inputData">
+                    <section class="text-center border1">
+                        <h2 class="text-center fw-bolder">Sifones</h2>
+                        <input class="inputData1 form-control" placeholder="Ingrese sifones" id="dato1" type="number" /> 
+                        <button class=" text-center mt-1 add1 " onclick="sumarInputs1()">Agregar sifones</button>
+                        <p class="mostrarx" id="mostrarX">0</p><p class="mostrarx" id="mostrarXX">0<p></p>
+                        
+                        </section>
+                    
+                     <section class="text-center border1">
+                        <h2 class="text-center fw-bolder">Bidones 12Lts</h2>
+                        <input class="inputData1 form-control"  placeholder="Ingrese bidones 12Lts" id="dato2" type="number"> 
+                        <button class="text-center mt-1 add2" onclick="sumarInputs2()">Agregar bidones 12Lts</button>
+                        <p class="mostrarb12 " id="mostrarB12">0<p>
+                    </section>
+            
+                    <section class="text-center border1">
+                        <h2 class="text-center fw-bolder">Bidones 20Lts</h2>
+                        <input  class="inputData1 form-control" placeholder="Ingrese bidones 20Lts" id="dato3" type="number"> 
+                        <button class=" text-center mt-1 add3" onclick="sumarInputs3()">Agregar bidones 20Lts</button>
+                        <p class="mostrarb20" id="mostrarB20">0<p>
+                    </section>
+            
+                    <section class="text-center border1">
+                        <h2 class="text-center fw-bolder">Refrescos</h2>
+                        <input placeholder="Ingrese Refrescos" id="dato4" type="number" class="inputData1 form-control"> 
+                        <button class=" text-center mt-1 add4" onclick="sumarInputs4()">Agregar refrescos</button>
+                        <p class="mostrarR" id="mostrarR">0<p>
+                    </section>
+                        <button id="cargadatos" class="btn btn-primary btn-lg mb-2" onclick="recoverData()">Recuperar datos</button>
+                        <button class="btn btn-primary btn-lg mb-2" onclick="ventaTotal()">Calcular ganancias (Propias)</button>
+                        <button class="btn btn-primary btn-lg mb-2" onclick="ventaTotalSab()">Calcular ganancias (Sabado)</button>
+                        <button class="btn btn-primary btn-lg mb-2" onclick="limpiar()">Limpiar</button>
+                </section>
+
+                <section class="table">
+                    <h3 class="text-center titulo">Ganancias propias</h3>
+                    <table>
+                        
+                        <tr class="titulo">
+                            <td> Producto</td>
+                            <td> Ganancia </td>
+                        </tr>
+                        
+                        <tr>
+                            <td> Sifones </td>
+                            <td id="GanSifonPropio"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td> Bidones 12Lts</td>
+                            <td id="GanBidon12Propio"></td>
+                        </tr>
+    
+                        <tr>
+                            <td> Bidones 20Lts</td>
+                            <td id="GanBidon20Propio"></td>
+                        </tr>
+    
+                        <tr>
+                            <td> Refrescos</td>
+                            <td id="GanRefrescoPropio"></td>                         
+                        </tr>
+    
+                        <tr>
+                            <td class="titulo"> Ganancia Total</td>
+                            <td class="totales" id="totalGanancia"></td>                         
+                        </tr>
+                        
+                        
+                        </table>
+
+                        <h3 class="text-center titulo">Ganancias Fabrica</h3>
+                        <table>
+                            
+                            <tr class="titulo">
+                                <td> Producto</td>
+                                <td> Ganancia </td>
+                            </tr>
+                            
+                            <tr>
+                                <td> Sifones </td>
+                                <td id="GanSifonFab"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td> Bidones 12Lts</td>
+                                <td id="GanBidon12Fab"></td>
+                            </tr>
+        
+                            <tr>
+                                <td> Bidones 20Lts</td>
+                                <td id="GanBidon20Fab"></td>
+                            </tr>
+        
+                            <tr>
+                                <td class="titulo"> Ganancia Total</td>
+                                <td class="totales" id="totalGananciaFab"></td>                         
+                            </tr>
+                            
+                            
+                            </table>
+                            <button class="btn btn-primary btn-lg mb-2" onclick="savedata()">Cerrar dia!</button>
+                </section>
+                  
+
+        
+            </main>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+            <script src="./db/configuracion.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+            <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script src="https://unpkg.com/moment"></script> 
+            <script src="cordova.js"></script>
+            <script src="js/index.js"></script>
+            <script src="js/db.js"></script>
+    </body>
+</html>
