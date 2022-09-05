@@ -169,14 +169,14 @@ function limpiar() {
 //Dinero total por producto - Inicia
 
 function ventaTotal() {
-  SifonPropio = x * 17;
-  Bidon12Propio = b12 * 71;
-  Bidon20Propio = b20 * 108;
+  SifonPropio = x * 18.2;
+  Bidon12Propio = b12 * 75;
+  Bidon20Propio = b20 * 112;
   RefrescoPropio = r * 60;
   TotalGanancia = SifonPropio + Bidon12Propio + Bidon20Propio + RefrescoPropio;
-  SifonFab = x * 11;
-  Bidon12Fab = b12 * 109;
-  Bidon20Fab = b20 * 182;
+  SifonFab = x * 11.8;
+  Bidon12Fab = b12 * 115;
+  Bidon20Fab = b20 * 188;
   TotalFabrica = SifonFab + Bidon12Fab + Bidon20Fab;
 //Ganancias propias
   document.getElementById("GanSifonPropio").innerHTML= ("$ " + SifonPropio.toFixed(1)); 
