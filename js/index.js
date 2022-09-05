@@ -226,7 +226,7 @@ function recoverData(){
     document.getElementById("dato2").value = JSON.parse(localStorage.getItem('b12guardado'))
     document.getElementById("dato3").value = JSON.parse(localStorage.getItem('b20guardado'))
     document.getElementById("dato4").value = JSON.parse(localStorage.getItem('refguardado'))
-    sumarInputs1(),sumarInputs2(),sumarInputs3(),sumarInputs4()
+    sumarInputs1(),sumarInputs2(),sumarInputs3(),sumarInputs4(),ventaTotal()
   } else {
     swal({
       icon:'warning',
